@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand tokens */
+  --bg: #0b0f14;
+  --panel: #141a22;
+  --panel-2: #11161d;
+  --hairline: #232b35;
+  --ink: #f4f7fb;
+  --muted: #9aa6b4;
+  --muted-2: #6b7885;
+  --amber: #f5a623;
+  --amber-bright: #ffc24b;
+  --teal: #2dd4bf;
+  --violet: #a78bfa;
+  --alert: #f87171;
+}
+
+@layer base {
+  * {
+    border-color: var(--hairline);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  ::selection {
+    background: rgba(245, 166, 35, 0.28);
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--amber);
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  .section-pad {
+    @apply py-24 md:py-32;
+  }
+
+  .container-max {
+    @apply mx-auto w-full max-w-content px-5 sm:px-6 lg:px-8;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-eyebrow text-muted-2;
+  }
+
+  .hairline-t {
+    border-top: 1px solid var(--hairline);
+  }
+
+  /* Amber pulse signature — an expanding ring that fades */
+  .pulse-ring::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1px solid var(--amber);
+    animation: pulse-ring 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  /* Faint film grain overlay */
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .text-gradient-amber {
+    background: linear-gradient(92deg, var(--amber-bright), var(--amber));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glow-blob {
+    filter: blur(70px);
+    will-change: transform, opacity;
+  }
+
+  /* thin hairline divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--hairline) 18%,
+      var(--hairline) 82%,
+      transparent
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .pulse-ring::after,
+  .animate-pulse-ring,
+  .animate-glow-drift,
+  .animate-live-dot {
+    animation: none !important;
+  }
+}
