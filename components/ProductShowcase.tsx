@@ -20,11 +20,11 @@ export function ProductShowcase() {
           intro="A tablet on the host stand shows the floor live. A report lands in your inbox when the shift ends. Nothing to learn."
         />
 
-        <div className="mt-14 grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-10">
+        <div className="mt-14 grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
           {/* Tablet bezel */}
-          <Reveal>
-            <div className="relative rounded-[1.75rem] border border-hairline bg-gradient-to-b from-[#1a222c] to-[#0e131a] p-3 shadow-[0_40px_80px_-40px_rgba(0,0,0,0.9)]">
-              <div className="rounded-[1.35rem] border border-hairline bg-bg p-3">
+          <Reveal className="h-full">
+            <div className="relative flex h-full flex-col rounded-[1.75rem] border border-hairline bg-gradient-to-b from-[#1a222c] to-[#0e131a] p-3 shadow-[0_40px_80px_-40px_rgba(0,0,0,0.9)]">
+              <div className="flex flex-1 flex-col rounded-[1.35rem] border border-hairline bg-bg p-3">
                 {/* tablet status bar */}
                 <div className="mb-3 flex items-center justify-between px-1">
                   <span className="text-[0.7rem] font-medium text-muted-2">Host stand · iPad</span>
@@ -32,7 +32,9 @@ export function ProductShowcase() {
                     <span className="h-1.5 w-1.5 rounded-full bg-teal" /> Connected
                   </span>
                 </div>
-                <LiveFloor />
+                <div className="flex flex-1 flex-col justify-center">
+                  <LiveFloor />
+                </div>
               </div>
               {/* camera dot */}
               <span

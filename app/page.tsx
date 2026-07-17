@@ -2,6 +2,7 @@ import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { ProblemGrid } from "@/components/ProblemGrid";
 import { SolutionCards } from "@/components/SolutionCards";
+import { CameraShowcase } from "@/components/CameraShowcase";
 import { FeatureCards } from "@/components/FeatureCards";
 import { ProductShowcase } from "@/components/ProductShowcase";
 import { DifferenceBand } from "@/components/DifferenceBand";
@@ -16,9 +17,9 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <div className="divider container-max" />
         <ProblemGrid />
         <SolutionCards />
+        <CameraShowcase />
         <FeatureCards />
         <ProductShowcase />
         <DifferenceBand />

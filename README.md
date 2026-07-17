@@ -33,12 +33,14 @@ app/
   globals.css         Brand tokens (CSS variables) + grain/glow utilities
   api/lead/route.ts   Stubbed demo-request endpoint (logs + returns success)
 components/
-  Nav, Hero, LiveFloor, ProblemGrid, SolutionCards, FeatureCards,
-  ProductShowcase, DifferenceBand, MetricsBand, HowItWorks,
-  CTASection, LeadForm, Footer, Logo (LogoMark + LogoLockup),
-  Button, Reveal, SectionHeading
+  Nav, Hero, LiveFloor, ProblemGrid, SolutionCards,
+  CameraShowcase, FeatureCards, ProductShowcase, DifferenceBand,
+  MetricsBand, HowItWorks, CTASection, LeadForm, Footer,
+  Logo (LogoMark + LogoLockup), Button, Reveal, SectionHeading
 lib/nav.ts            Nav link data
 public/favicon.svg    Simplified amber table glyph
+public/*.webp         Camera imagery: herosectionbackground (dimmed hero bg),
+                      camera-feed, dirty, notordered (detection showcase)
 ```
 
 The signature component is **`components/LiveFloor.tsx`** — an animated live dining

@@ -63,33 +63,34 @@ function CountUp({ target, duration = 1400 }: { target: number; duration?: numbe
 
 export function MetricsBand() {
   return (
-    <section className="section-pad">
+    <section className="section-pad hairline-t">
       <div className="container-max">
-        <div className="rounded-3xl border border-hairline bg-panel-2 px-6 py-12 md:px-12 md:py-16">
-          <dl className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
-            {STATS.map((stat, i) => (
-              <Reveal key={stat.label} index={i} className="text-center">
-                <div className="flex flex-col items-center gap-2">
-                  <dd
-                    className={`text-5xl font-extrabold tracking-tightest md:text-6xl ${
-                      stat.accent === "amber" ? "text-gradient-amber" : "text-teal"
-                    }`}
-                  >
-                    {stat.prefix}
-                    <CountUp target={stat.value} />
-                    {stat.suffix}
-                  </dd>
-                  <dt className="max-w-[10rem] text-sm font-medium leading-snug text-muted">
-                    {stat.label}
-                  </dt>
-                </div>
-              </Reveal>
-            ))}
-          </dl>
-          <p className="mt-10 text-center text-xs italic text-muted-2">
-            Illustrative — replace with pilot data.
-          </p>
-        </div>
+        <Reveal>
+          <p className="eyebrow mb-12 text-center">What a shift looks like on DiningOS</p>
+        </Reveal>
+        <dl className="grid grid-cols-2 gap-y-14 md:grid-cols-4 md:divide-x md:divide-hairline">
+          {STATS.map((stat, i) => (
+            <Reveal key={stat.label} index={i} className="px-4 text-center md:px-6">
+              <div className="flex flex-col items-center gap-3">
+                <dd
+                  className={`text-6xl font-extrabold tracking-tightest md:text-7xl ${
+                    stat.accent === "amber" ? "text-gradient-amber" : "text-teal"
+                  }`}
+                >
+                  {stat.prefix}
+                  <CountUp target={stat.value} />
+                  {stat.suffix}
+                </dd>
+                <dt className="max-w-[11rem] text-sm font-medium leading-snug text-muted">
+                  {stat.label}
+                </dt>
+              </div>
+            </Reveal>
+          ))}
+        </dl>
+        <p className="mt-14 text-center text-xs italic text-muted-2">
+          Illustrative — replace with pilot data.
+        </p>
       </div>
     </section>
   );
